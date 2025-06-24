@@ -1,0 +1,9 @@
+const data = await res.json();
+
+if (data.error) {
+  document.getElementById("responseText").innerText = "❌ API Error: " + data.error.message;
+  return;
+}
+
+const reply = data.choices?.[0]?.message?.content || "❌ উত্তর পাওয়া যায়নি!";
+document.getElementById("responseText").innerText = reply;
